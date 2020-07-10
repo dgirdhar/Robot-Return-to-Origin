@@ -2,28 +2,30 @@ class Solution {
 public:
     bool judgeCircle(string moves) {
         bool ret = false;
-        int x = 0;
-        int y = 0;
+        int uCount = 0;
+        int dCount = 0;
+        int lCount = 0;
+        int rCount = 0;
         
         for (int i = 0; i < moves.size(); ++i) {
             switch(moves[i]) {
                 case 'U':
-                    y += 1;
+                    uCount++;
                     break;
                 case 'D':
-                    y -= 1;
+                    dCount++;
                     break;
                 case 'R':
-                    x += 1;
+                    rCount++;
                     break;
                 case 'L':
-                    x -= 1;
+                    lCount++;
                     break;
                 default:
                     break;
             };
         }
-        if (x == 0 && y == 0) {
+        if (uCount == dCount && lCount == rCount) {
             ret = true;
         }
         
